@@ -9,6 +9,7 @@ import { AppRoutes } from './app.routes';
 export function Routes() {
   const { colors } = useTheme();
   const [ notification, setNotification ] = useState<OSNotification>();
+ 
 
   const theme = DefaultTheme;
   theme.colors.background = colors.gray[700];
@@ -28,8 +29,8 @@ export function Routes() {
     <NavigationContainer theme={theme}>
       <AppRoutes />
       {
-      // notification?.title &&
-        <Notification title={'notification.title'}  onClose={()=>setNotification(undefined)}/>
+      notification?.title &&
+        <Notification data={notification}  onClose={()=>setNotification(undefined)}/>
     }
     </NavigationContainer>
   );

@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { StatusBar } from 'react-native';
 import OneSignal from 'react-native-onesignal';
 import { NativeBaseProvider } from 'native-base';
@@ -27,7 +28,30 @@ export default function App() {
   tagsForDynamicMessages('Gilmara', 'IgniteShoes', 'gilmara@gmail.com'); 
 
 
+ useEffect(()=>{
+  // This OneSignal method shows when user clicked on the notification when App is in background
+  const subscription = OneSignal.setNotificationOpenedHandler(response=>{
+  
+    if(response.action){
+      const { actionId}  =  response.action as any;
+      console.log(actionId)
 
+      switch(actionId){
+        case '1':
+          return console.log('Take me to my order, as I clicked in View order');
+        case '2':
+          return console.log('Take me to all orders, as I clicked in View all orders');
+        default:  return console.log('None of the buttons were clicked')
+          
+      }
+    }
+
+
+  });
+
+  return ()=> subscription; 
+
+ },[]);
   
   return (
     <NativeBaseProvider theme={THEME}>
