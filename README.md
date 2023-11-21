@@ -12,6 +12,10 @@
 
 igniteshoesapp
 
+<p align="center">
+  <img src="https://github.com/Gilmara-Git/React-Native-ignite-shoes/assets/66445234/e1878fd3-b12b-4b95-b2e4-9a010b03783c" alt="Project's screens"/>
+</p>
+
 ## 📝 Licença
 
 Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
